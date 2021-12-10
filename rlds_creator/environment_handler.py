@@ -63,11 +63,11 @@ PAUSE_KEY = '/'
 
 # JPEG quality settings. See
 # https://pillow.readthedocs.io/en/stable/reference/JpegPresets.html.
-_DEFAULT_QUALITY = 'web_low'
+_DEFAULT_QUALITY = 'web_high'
 _QUALITY_MAPPING = {
-    client_pb2.SetQualityRequest.QUALITY_LOW: 'web_low',
-    client_pb2.SetQualityRequest.QUALITY_MEDIUM: 'web_medium',
-    client_pb2.SetQualityRequest.QUALITY_HIGH: 'web_high'
+    client_pb2.SetQualityRequest.QUALITY_LOW: 'web_medium',
+    client_pb2.SetQualityRequest.QUALITY_MEDIUM: 'web_high',
+    client_pb2.SetQualityRequest.QUALITY_HIGH: 'web_very_high'
 }
 
 # Number of episodes that will be preloaded in the merger when downloading the

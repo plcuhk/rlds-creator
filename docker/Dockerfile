@@ -123,5 +123,13 @@ RUN ln -s /root/.mujoco/mujoco200 /root/.mujoco/mujoco200_linux
 # enabled.
 RUN bazel build --experimental_inprocess_symlink_creation rlds_creator:server
 
+RUN pip3 install chex
+
+# Mujoco 2.1.0 from Deepmind
+RUN curl -k https://mujoco.org/download/mujoco210-linux-x86_64.tar.gz --output /tmp/mujoco210.tar.gz && \
+    tar -xvzf /tmp/mujoco210.tar.gz -C /root/.mujoco && \
+    rm -f /tmp/mujoco210.zip
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/root/.mujoco/mujoco210/bin
+
 # Run the server.
 CMD python3 bazel-bin/rlds_creator/server --port=$PORT
